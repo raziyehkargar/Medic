@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:medic/comon/constant.dart';
 import 'package:medic/gen/assets.gen.dart';
-import 'package:medic/home.dart';
-import 'package:medic/profile.dart';
-import 'package:medic/sound.dart';
+import 'package:medic/screens/home.dart';
+import 'package:medic/screens/profile.dart';
+import 'package:medic/screens/sound.dart';
 import 'package:medic/theme.dart';
 
 void main() {
@@ -43,6 +43,14 @@ class MyApp extends StatelessWidget {
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))))),
         scaffoldBackgroundColor: DarkThemeColor.primaryColor,
+        tabBarTheme: TabBarTheme(
+            labelStyle: defaultStyle2.copyWith(
+                fontSize: 16, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: defaultStyle2.copyWith(
+                color: Theme.of(context)
+                    .colorScheme
+                    .onBackground
+                    .withOpacity(.1))),
         textTheme: TextTheme(
           headline3: defaultStyle1.copyWith(
             fontSize: 35,

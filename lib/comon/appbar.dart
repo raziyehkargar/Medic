@@ -3,6 +3,7 @@ import 'package:medic/gen/assets.gen.dart';
 
 class CustomAppbar extends StatelessWidget {
   final bool isProfileScreen;
+
   final Function() onTap;
   const CustomAppbar({
     Key? key,
@@ -20,7 +21,18 @@ class CustomAppbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Assets.img.icon.menu.svg(width: 22, height: 18),
+              InkWell(
+                  onTap: (() {}),
+                  borderRadius: BorderRadius.circular(18),
+                  child: Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                          child: Assets.img.icon.menu
+                              .svg(width: 22, height: 18)))),
               Assets.img.icon.logo.svg(width: 43.41, height: 49),
               InkWell(
                 onTap: onTap,

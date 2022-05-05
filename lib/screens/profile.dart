@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:medic/comon/appbar.dart';
 import 'package:medic/comon/constant.dart';
 import 'package:medic/data/app_data.dart';
@@ -61,6 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               height: 60,
               child: TabBar(
                 controller: _tabController,
+                indicatorColor: Theme.of(context).colorScheme.tertiary,
                 tabs: const [
                   Tab(
                     text: "STATS",
@@ -71,59 +73,18 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ],
               ),
             ),
-            const SizedBox(height: 12),
+            // const SizedBox(height: 24),
             Expanded(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width - defMargin,
-                //height: MediaQuery.of(context).size.height / 4,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TabBarView(controller: _tabController, children: [
-                        BarChart(
-                          BarChartData(
-                            barGroups: _chartData
-                                .map((DataItem _dataItem) =>
-                                    BarChartGroupData(x: _dataItem.x, barRods: [
-                                      BarChartRodData(
-                                          toY: _dataItem.y1,
-                                          width: 12,
-                                          color:
-                                              themeData.colorScheme.secondary),
-                                      BarChartRodData(
-                                          toY: _dataItem.y2,
-                                          width: 12,
-                                          color: themeData.colorScheme.secondary
-                                              .withOpacity(.5))
-                                    ]))
-                                .toList(),
-                            titlesData: FlTitlesData(
-                                show: true,
-                                topTitles: AxisTitles(
-                                    axisNameWidget: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "This Week’s Stats",
-                                      style: themeData.textTheme.caption,
-                                    ),
-                                  ],
-                                ))),
-                            groupsSpace: 150,
-                            gridData: FlGridData(show: true),
-                            barTouchData: BarTouchData(enabled: true),
-                            rangeAnnotations: RangeAnnotations(),
-                          ),
-                        ),
-                        const Text('ACHIEVEMENTS TAb'),
-                      ]),
-                    ),
-                  ],
+              // child: SizedBox(
+              //   width: MediaQuery.of(context).size.width,
+              child: TabBarView(controller: _tabController, children: [
+                _ChartStats(
+                  chartData: _chartData,
+                  themeData: themeData,
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 16,
+                const Text('ACHIEVEMENTS TAb'),
+              ]),
+              //),
             ),
           ],
         ),
@@ -132,6 +93,108 @@ class _ProfileScreenState extends State<ProfileScreen>
   }
 }
 
+class _ChartStats extends StatelessWidget {
+  _ChartStats({
+    Key? key,
+    required List<DataItem> chartData,
+    required this.themeData,
+  })  : _chartData = chartData,
+        super(key: key);
+
+  final List<DataItem> _chartData;
+  final ThemeData themeData;
+  final Map<int, String> weekDays = {
+    0: "Mon",
+    1: "Tus",
+    2: "Wen",
+    3: "Thr",
+    4: "Fri",
+    5: "Sun",
+    6: "Sat",
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+          defMargin + 10, defMargin / 2, defMargin + 10, defMargin / 2),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "This Week’s Stats",
+                style: themeData.textTheme.caption!
+                    .copyWith(fontWeight: FontWeight.bold),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Show All',
+                  style: themeData.textTheme.caption!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+          Expanded(
+            child: BarChart(
+              BarChartData(
+                barGroups: _chartData
+                    .map((DataItem _dataItem) =>
+                        BarChartGroupData(x: _dataItem.x, barRods: [
+                          BarChartRodData(
+                              toY: _dataItem.y1,
+                              width: 15,
+                              color: themeData.colorScheme.tertiary),
+                          BarChartRodData(
+                              toY: _dataItem.y2,
+                              width: 15,
+                              color: themeData.colorScheme.secondary
+                                  .withOpacity(.5))
+                        ]))
+                    .toList(),
+                titlesData: FlTitlesData(
+                  //show: true,
+                  rightTitles: AxisTitles(drawBehindEverything: false),
+                  leftTitles: AxisTitles(
+                      drawBehindEverything: true,
+                      sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: (value, meta) => Text(
+                                value.toInt().toString(),
+                                style:
+                                    GoogleFonts.karla(fontSize: 12, height: 1),
+                              ))),
+                  bottomTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      getTitlesWidget: (value, meta) => Text(
+                        weekDays[value.toInt()]!,
+                        style: GoogleFonts.karla(fontSize: 12, height: 2),
+                      ),
+                    ),
+                  ),
+                ),
+                // groupsSpace: 199,
+                gridData: FlGridData(show: true, drawVerticalLine: false),
+                barTouchData: BarTouchData(
+                    enabled: true,
+                    touchTooltipData: BarTouchTooltipData(
+                        tooltipBgColor: themeData.colorScheme.surface)),
+                alignment: BarChartAlignment.spaceEvenly,
+                baselineY: 199.0,
+                borderData: FlBorderData(show: false),
+                minY: 0,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 // Define data structure for a bar group
 // class DataItem {
 //   int x;

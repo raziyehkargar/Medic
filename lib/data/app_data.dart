@@ -5,15 +5,15 @@ import 'dart:math';
 class AppData {
   // String firstName;
   // String place;
-  Map<int, String> weekDays = {
-    0: "Sat",
-    1: "Sun",
-    2: "Mon",
-    3: "Tus",
-    4: "Wen",
-    5: "Thr",
-    6: "Fri"
-  };
+  // Map<int, String> weekDays = {
+  //   0: "Sat",
+  //   1: "Sun",
+  //   2: "Mon",
+  //   3: "Tus",
+  //   4: "Wen",
+  //   5: "Thr",
+  //   6: "Fri"
+  // };
 
   String get name => "AfreenKhan";
 
@@ -25,8 +25,8 @@ class AppData {
       7,
       (index) => DataItem(
           x: index,
-          y1: Random().nextInt(10000) + Random().nextDouble(),
-          y2: Random().nextInt(10000) + Random().nextDouble()));
+          y1: Random().nextInt(1000).toDouble(),
+          y2: Random().nextInt(1000).toDouble()));
 }
 
 class DataItem {

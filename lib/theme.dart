@@ -7,6 +7,8 @@ class DarkThemeColor {
   static const secondaryColor = Color(0xff7C9A92);
   static const onSecondaryColor = Color(0xffffffff);
 
+  static const tertiary = Color(0xff95CBCF);
+
   static const surfaceColor = Color(0xffffffff);
   static const onSurfaceColor = Color(0xff000000);
 

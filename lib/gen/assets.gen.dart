@@ -9,6 +9,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsAudioGen {
+  const $AssetsAudioGen();
+
+  /// File path: assets/audio/music1.mp3
+  String get music1 => 'assets/audio/music1.mp3';
+}
+
 class $AssetsImgGen {
   const $AssetsImgGen();
 
@@ -46,11 +53,11 @@ class $AssetsImgIconGen {
   /// File path: assets/img/icon/menu.svg
   SvgGenImage get menu => const SvgGenImage('assets/img/icon/menu.svg');
 
+  /// File path: assets/img/icon/profile.svg
+  SvgGenImage get profile => const SvgGenImage('assets/img/icon/profile.svg');
+
   /// File path: assets/img/icon/sound.svg
   SvgGenImage get sound => const SvgGenImage('assets/img/icon/sound.svg');
-
-  /// File path: assets/img/icon/vector.svg
-  SvgGenImage get vector => const SvgGenImage('assets/img/icon/vector.svg');
 }
 
 class $AssetsImgProfileGen {
@@ -74,11 +81,16 @@ class $AssetsImgShapeGen {
 
   /// File path: assets/img/shape/shape4.svg
   SvgGenImage get shape4 => const SvgGenImage('assets/img/shape/shape4.svg');
+
+  /// File path: assets/img/shape/shape5.png
+  AssetGenImage get shape5 =>
+      const AssetGenImage('assets/img/shape/shape5.png');
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsAudioGen audio = $AssetsAudioGen();
   static const $AssetsImgGen img = $AssetsImgGen();
 }
 

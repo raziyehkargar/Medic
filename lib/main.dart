@@ -4,8 +4,10 @@ import 'package:medic/bottom_navigate_provide.dart';
 import 'package:medic/comon/constant.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/home.dart';
+import 'package:medic/screens/onboarding.dart';
 import 'package:medic/screens/profile.dart';
 import 'package:medic/screens/sound.dart';
+import 'package:medic/screens/splash.dart';
 import 'package:medic/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -100,8 +102,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: ChangeNotifierProvider(
-          create: (_) => BottomNavigateProvide(), child: const Main()),
+      home: const Splash(),
+      // ChangeNotifierProvider(
+      //     create: (_) => BottomNavigateProvide(), child: const Main()),
     );
   }
 }

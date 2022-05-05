@@ -39,6 +39,10 @@ class $AssetsImgBackgroundGen {
   /// File path: assets/img/background/forest.png
   AssetGenImage get forest =>
       const AssetGenImage('assets/img/background/forest.png');
+
+  /// File path: assets/img/background/onboardingbk.png
+  AssetGenImage get onboardingbk =>
+      const AssetGenImage('assets/img/background/onboardingbk.png');
 }
 
 class $AssetsImgIconGen {

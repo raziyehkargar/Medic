@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic/comon/appbar.dart';
+import 'package:medic/comon/open_profile_Screen.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,9 @@ class SoundScreen extends StatelessWidget {
           child: Column(
             children: [
               CustomAppbar(
-                onTap: () {},
+                onTap: () {
+                  openProfileScreen(context);
+                },
               ),
               ClipRRect(
                   borderRadius: BorderRadius.circular(125),

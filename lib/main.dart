@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:medic/bottom_navigate_provide.dart';
 import 'package:medic/comon/constant.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/home.dart';
 import 'package:medic/screens/profile.dart';
 import 'package:medic/screens/sound.dart';
 import 'package:medic/theme.dart';
+import 'package:provider/provider.dart';
 
 const int homeIndex = 0;
 const int soundIndex = 1;
@@ -98,7 +100,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Main(),
+      home: ChangeNotifierProvider(
+          create: (_) => BottomNavigateProvide(), child: const Main()),
     );
   }
 }
@@ -111,7 +114,8 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int selectedScreenIndex = homeIndex;
+  //int selectedScreenIndex = homeIndex;
+
   final GlobalKey<NavigatorState> _homeKey = GlobalKey();
   final GlobalKey<NavigatorState> _soundKey = GlobalKey();
   final GlobalKey<NavigatorState> _profileKey = GlobalKey();
@@ -124,33 +128,42 @@ class _MainState extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: _BottonNavigationBar(
-        selectedIndex: selectedScreenIndex,
-        onTap: (index) {
-          setState(() {
-            selectedScreenIndex = index;
-          });
-        },
-      ),
-      body: IndexedStack(
-        index: selectedScreenIndex,
-        children: [
-          Navigator(
-              key: _homeKey,
-              onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => const HomeScreen())),
-          Navigator(
-            key: _soundKey,
-            onGenerateRoute: (setting) =>
-                MaterialPageRoute(builder: (context) => const SoundScreen()),
-          ),
-          Navigator(
-            key: _profileKey,
-            onGenerateRoute: (seting) =>
-                MaterialPageRoute(builder: (context) => const ProfileScreen()),
-          ),
-        ],
+    Provider.of<BottomNavigateProvide>(context, listen: false)
+        .changeIndex(homeIndex);
+    return Consumer<BottomNavigateProvide>(
+      builder: (context, bottomNavigationProvider, _) => Scaffold(
+        bottomNavigationBar: _BottonNavigationBar(
+          // selectedIndex: selectedScreenIndex,
+          selectedIndex:
+              Provider.of<BottomNavigateProvide>(context).selectedIndex,
+          onTap: (index) {
+            // setState(() {
+            //   //selectedScreenIndex = index;
+
+            // });
+            bottomNavigationProvider.changeIndex(index);
+          },
+        ),
+        body: IndexedStack(
+          // index: selectedScreenIndex,
+          index: Provider.of<BottomNavigateProvide>(context).selectedIndex,
+          children: [
+            Navigator(
+                key: _homeKey,
+                onGenerateRoute: (settings) => MaterialPageRoute(
+                    builder: (context) => const HomeScreen())),
+            Navigator(
+              key: _soundKey,
+              onGenerateRoute: (setting) =>
+                  MaterialPageRoute(builder: (context) => const SoundScreen()),
+            ),
+            Navigator(
+              key: _profileKey,
+              onGenerateRoute: (seting) => MaterialPageRoute(
+                  builder: (context) => const ProfileScreen()),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:medic/bottom_navigate_provide.dart';
+import 'package:medic/comon/open_profile_Screen.dart';
 import 'package:medic/gen/assets.gen.dart';
+import 'package:medic/main.dart';
+import 'package:provider/provider.dart';
 
 class CustomAppbar extends StatelessWidget {
   final bool isProfileScreen;

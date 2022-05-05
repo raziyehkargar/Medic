@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medic/bottom_navigate_provide.dart';
 import 'package:medic/comon/appbar.dart';
 import 'package:medic/comon/constant.dart';
+import 'package:medic/comon/open_profile_Screen.dart';
 import 'package:medic/gen/assets.gen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +19,11 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomAppbar(
-                onTap: () {},
+                onTap: () {
+                  // Provider.of<BottomNavigateProvide>(context, listen: false)
+                  //     .changeIndex(profileIndex);
+                  openProfileScreen(context);
+                },
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(defMargin, 0, defMargin, 20),

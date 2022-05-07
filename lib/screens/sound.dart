@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medic/comon/appbar.dart';
-import 'package:medic/comon/open_profile_Screen.dart';
+import 'package:medic/comon/constant.dart';
+import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:provider/provider.dart';
@@ -14,13 +15,10 @@ class SoundScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: Constant.defaultPhysics,
           child: Column(
             children: [
-              CustomAppbar(
-                onTap: () {
-                  openProfileScreen(context);
-                },
-              ),
+              const CustomAppbar(),
               ClipRRect(
                   borderRadius: BorderRadius.circular(125),
                   child: Assets.img.background.forest
@@ -112,6 +110,8 @@ class _AdvancedState extends State<Advanced> {
   @override
   Widget build(BuildContext context) {
     final audioPosition = Provider.of<Duration>(context);
-    return SingleChildScrollView();
+    return SingleChildScrollView(
+      physics: Constant.defaultPhysics,
+    );
   }
 }

@@ -13,4 +13,6 @@ class DarkThemeColor {
   static const onSurfaceColor = Color(0xff000000);
 
   static const primaryTextColor = Color(0xffffffff);
+  static const errorTextColor = Color.fromARGB(255, 154, 156, 119);
+  // static const errorTextColor = Color.fromRGBO(124, 154, 146, 1);
 }

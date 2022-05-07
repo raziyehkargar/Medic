@@ -36,9 +36,25 @@ class $AssetsImgBackgroundGen {
   AssetGenImage get cardImage2 =>
       const AssetGenImage('assets/img/background/cardImage2.png');
 
+  /// File path: assets/img/background/desert.png
+  AssetGenImage get desert =>
+      const AssetGenImage('assets/img/background/desert.png');
+
   /// File path: assets/img/background/forest.png
   AssetGenImage get forest =>
       const AssetGenImage('assets/img/background/forest.png');
+
+  /// File path: assets/img/background/hill.png
+  AssetGenImage get hill =>
+      const AssetGenImage('assets/img/background/hill.png');
+
+  /// File path: assets/img/background/leaf.png
+  AssetGenImage get leaf =>
+      const AssetGenImage('assets/img/background/leaf.png');
+
+  /// File path: assets/img/background/mountain.png
+  AssetGenImage get mountain =>
+      const AssetGenImage('assets/img/background/mountain.png');
 
   /// File path: assets/img/background/onboardingbk.png
   AssetGenImage get onboardingbk =>

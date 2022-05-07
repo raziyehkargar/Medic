@@ -33,7 +33,6 @@ class _ProfileScreenState extends State<ProfileScreen>
             //Appbar
             CustomAppbar(
               isProfileScreen: true,
-              onTap: () {},
             ),
             //Profile picture
             ClipRRect(
@@ -117,7 +116,10 @@ class _ChartStats extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-          defMargin + 10, defMargin / 2, defMargin + 10, defMargin / 2),
+          Constant.defMargin + 10,
+          Constant.defMargin / 2,
+          Constant.defMargin + 10,
+          Constant.defMargin / 2),
       child: Column(
         children: [
           Row(

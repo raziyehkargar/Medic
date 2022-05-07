@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/onboarding.dart';
 
@@ -12,14 +13,8 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3)).then(
-      (value) => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const Onboarding(),
-        ),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => pushReplacement(context, const Onboarding()));
 
     super.initState();
   }
@@ -35,8 +30,8 @@ class _SplashState extends State<Splash> {
                 image: Assets.img.background.onboardingbk, fit: BoxFit.cover)),
         child: Center(
           child: Assets.img.icon.logo.svg(
-            width: 191,
-            height: 199,
+            width: 202,
+            height: 213,
           ),
         ),
       ),

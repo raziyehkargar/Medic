@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:medic/bottom_navigate_provide.dart';
 import 'package:medic/comon/appbar.dart';
 import 'package:medic/comon/constant.dart';
-import 'package:medic/comon/open_profile_Screen.dart';
+import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,18 +14,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: Constant.defaultPhysics,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppbar(
-                onTap: () {
-                  // Provider.of<BottomNavigateProvide>(context, listen: false)
-                  //     .changeIndex(profileIndex);
-                  openProfileScreen(context);
-                },
-              ),
+              const CustomAppbar(),
               Padding(
-                padding: const EdgeInsets.fromLTRB(defMargin, 0, defMargin, 20),
+                padding: const EdgeInsets.fromLTRB(
+                    Constant.defMargin, 0, Constant.defMargin, 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -122,7 +117,8 @@ class _HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.only(left: defMargin / 2, right: defMargin / 2),
+      margin: const EdgeInsets.only(
+          left: Constant.defMargin / 2, right: Constant.defMargin / 2),
       decoration: BoxDecoration(
         color: themeData.colorScheme.surface,
         borderRadius: BorderRadius.circular(32),

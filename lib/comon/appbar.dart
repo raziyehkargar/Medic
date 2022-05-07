@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 
 class CustomAppbar extends StatelessWidget {
   final bool isProfileScreen;
 
-  final Function() onTap;
+  //final Function() onTap;
+
   const CustomAppbar({
     Key? key,
     this.isProfileScreen = false,
-    required this.onTap,
+    //required this.onTap,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,13 @@ class CustomAppbar extends StatelessWidget {
                               .svg(width: 22, height: 18)))),
               Assets.img.icon.logo.svg(width: 43.41, height: 49),
               InkWell(
-                onTap: onTap,
+                onTap: isProfileScreen
+                    ? () {
+                        //edit profile
+                      }
+                    : () {
+                        openProfileScreen(context);
+                      },
                 borderRadius: BorderRadius.circular(18),
                 child: !isProfileScreen
                     ? ClipRRect(

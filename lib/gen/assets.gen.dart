@@ -90,6 +90,10 @@ class $AssetsImgProfileGen {
 class $AssetsImgShapeGen {
   const $AssetsImgShapeGen();
 
+  /// File path: assets/img/shape/meditating.png
+  AssetGenImage get meditating =>
+      const AssetGenImage('assets/img/shape/meditating.png');
+
   /// File path: assets/img/shape/shape1.svg
   SvgGenImage get shape1 => const SvgGenImage('assets/img/shape/shape1.svg');
 

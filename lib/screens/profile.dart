@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         child: Column(
           children: [
             //Appbar
-            CustomAppbar(
+            const CustomAppbar(
               isProfileScreen: true,
             ),
             //Profile picture

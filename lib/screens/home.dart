@@ -4,6 +4,7 @@ import 'package:medic/comon/appbar.dart';
 import 'package:medic/comon/constant.dart';
 import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
+import 'package:medic/screens/meditation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -75,7 +76,9 @@ class HomeScreen extends StatelessWidget {
                 subTitle: 'Techniques, Benefits, and a Beginner’s How-To',
                 image: Assets.img.background.cardImage1
                     .image(width: 166, height: 111),
-                onTap: () {},
+                onTap: () {
+                  push(context, const MeditationScreen());
+                },
               ),
               const SizedBox(
                 height: 16,

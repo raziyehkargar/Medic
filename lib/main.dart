@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic/comon/constant.dart';
+import 'package:medic/screens/meditation.dart';
 import 'package:medic/screens/splash.dart';
 import 'package:medic/theme.dart';
 
@@ -136,7 +137,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Splash(),
+      home: const MeditationScreen(),
+      // home: const SplashScreen(),
+
       // ChangeNotifierProvider(
       //     create: (_) => BottomNavigateProvide(), child: const Main()),
     );

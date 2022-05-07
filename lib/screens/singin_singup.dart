@@ -4,8 +4,8 @@ import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/main_screen.dart';
 
-class SingUp extends StatelessWidget {
-  const SingUp({Key? key}) : super(key: key);
+class SingUpScreen extends StatelessWidget {
+  const SingUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class SingUp extends StatelessWidget {
   }
 }
 
-class SingIn extends StatelessWidget {
-  const SingIn({Key? key}) : super(key: key);
+class SingInScreen extends StatelessWidget {
+  const SingInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -218,12 +218,12 @@ class _SinginOrSingupState extends State<_SinginOrSingup> {
                                             context,
                                             Builder(
                                                 builder: (context) =>
-                                                    const SingUp()))
+                                                    const SingUpScreen()))
                                         : pushReplacement(
                                             context,
                                             Builder(
                                                 builder: (context) =>
-                                                    const SingIn()));
+                                                    const SingInScreen()));
                                   },
                                   child: Text(
                                     widget.isSingInPage ? 'Sign Up' : 'Sign In',

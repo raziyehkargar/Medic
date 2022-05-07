@@ -3,18 +3,18 @@ import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/onboarding.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3))
-        .then((value) => pushReplacement(context, const Onboarding()));
+        .then((value) => pushReplacement(context, const OnboardingScreen()));
 
     super.initState();
   }

@@ -4,8 +4,8 @@ import 'package:medic/comon/methods.dart';
 import 'package:medic/gen/assets.gen.dart';
 import 'package:medic/screens/singin_singup.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding({Key? key}) : super(key: key);
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class Onboarding extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     onPressed: () {
-                      pushReplacement(context, const SingIn());
+                      pushReplacement(context, const SingInScreen());
                     },
                     child: const Text('Login With Email'),
                   ),
@@ -69,7 +69,7 @@ class Onboarding extends StatelessWidget {
                     const Text('Don’t have an account? '),
                     InkWell(
                       onTap: () {
-                        push(context, SingUp());
+                        push(context, SingUpScreen());
                       },
                       child: Text(
                         'Sign Up',
